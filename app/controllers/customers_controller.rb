@@ -21,5 +21,21 @@ class CustomersController < ApplicationController
  def show
    @customer = Customer.find(params[:id])
  end
+ def edit
+   @customer = Customer.find(params[:id])
+ end
+
+ def update
+    @customer = Customer.find(params[:id])
+    if @customer.update_attributes(params[:customer])
+       flash[:notice] = "Customer has been updated."
+       redirect_to @customer
+    else
+       flash[:alert] = "Customer has not been updated."
+       render :action => "edit"
+    end
+ end
+
+
 
 end

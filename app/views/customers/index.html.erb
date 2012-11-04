@@ -1,4 +1,6 @@
-<h2>Customerss</h2>
+<h2>Customers</h2>
+<%= link_to "New Customer", new_customer_path %>
+
 <ul>
 <% @customers.each do |customer| %>
 <li><%= link_to customer.name, customer %></li>
