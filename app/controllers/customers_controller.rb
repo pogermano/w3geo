@@ -13,7 +13,8 @@ class CustomersController < ApplicationController
        flash[:notice] = "Customer has been created."
        redirect_to @customer
     else
-      # nothing, yet
+       flash[:alert] = "Customer has not been created."
+       render :action => "new"
     end
  end
  def show
