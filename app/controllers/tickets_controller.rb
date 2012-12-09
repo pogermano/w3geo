@@ -4,6 +4,7 @@ before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
 
 def new
   @ticket = @customer.tickets.build
+  @ticket.inspect
 end
 
 def show

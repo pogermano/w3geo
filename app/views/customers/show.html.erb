@@ -6,4 +6,11 @@ customer_path(@customer),
 :method => :delete,
 :confirm => "Are you sure you want to delete this project?" %>
 <%= link_to "New Ticket", new_customer_ticket_path(@customer) %>
-
+<ul id='tickets'>
+ <% @customer.tickets.each do |ticket| %>
+  <li>
+   #<%= ticket.id %> -
+   <%= link_to ticket.title, [@customer, ticket] %>
+  </li>
+ <% end %>
+</ul>
