@@ -22,3 +22,12 @@ test:
   username: rails
   password: a
 
+production:
+  adapter: postgresql
+  database: w3geo_production
+  encoding: unicode
+  pool: 5
+  username: rails
+  password: a
+
+

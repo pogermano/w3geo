@@ -1,5 +1,8 @@
 class CustomersController < ApplicationController
-
+ before_filter :find_customer, :only => [:show,
+                                         :edit,
+                                         :update,
+                                         :destroy]
  def index
    @customers = Customer.all
  end
@@ -19,14 +22,11 @@ class CustomersController < ApplicationController
     end
  end
  def show
-   @customer = Customer.find(params[:id])
  end
  def edit
-   @customer = Customer.find(params[:id])
  end
 
  def update
-    @customer = Customer.find(params[:id])
     if @customer.update_attributes(params[:customer])
        flash[:notice] = "Customer has been updated."
        redirect_to @customer
@@ -37,10 +37,23 @@ class CustomersController < ApplicationController
  end
 
  def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy 
     flash[:notice] = "Customer has been deleted."
     redirect_to  customers_path
  end
+
+private
+  def find_customer
+    @customer = Customer.find(params[:id])
+   rescue ActiveRecord::RecordNotFound
+     flash[:alert] = "The customer you were looking" +
+                     " for could not be found."
+     redirect_to customers_path
+   end
+
+    
+
+
+
 
 end
