@@ -17,6 +17,8 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4'
 end
+gem 'devise', '2.1.0.rc'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
