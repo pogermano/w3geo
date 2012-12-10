@@ -22,6 +22,11 @@ def update
    end
 end
 
+def destroy
+      @ticket.destroy
+      flash[:notice] = "Ticket has been deleted."
+      redirect_to @customer
+end
 
 def show
 end
