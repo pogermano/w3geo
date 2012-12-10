@@ -4,7 +4,6 @@ before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
 
 def new
   @ticket = @customer.tickets.build
-  @ticket.inspect
 end
 
 def edit
@@ -32,6 +31,8 @@ def show
 end
 
 def create
+print "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+print params.inspect
   @ticket = @customer.tickets.build(params[:ticket])
   if @ticket.save
      flash[:notice] = "Ticket has been created."
@@ -48,7 +49,7 @@ end
 
 private
  def find_customer
-    @customer = Customer.find{params[:customer_id]}
+    @customer = Customer.find(params[:customer_id])
  end
  def find_ticket
     @ticket = @customer.tickets.find(params[:id])
