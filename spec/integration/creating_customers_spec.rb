@@ -2,6 +2,7 @@ require 'spec_helper'
 
  feature 'Creating Customers' do
   before  do
+   sign_in_as!(Factory(:admin_user))
    visit '/'
    click_link 'New Customer'
   end

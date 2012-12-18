@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature "Editing Customers" do
    before do 
+       sign_in_as!(Factory(:admin_user))
        Factory(:customer, :name => "W3G")
        visit "/"
        click_link "W3G"
