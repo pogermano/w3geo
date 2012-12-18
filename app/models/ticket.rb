@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   belongs_to :customer
+  belongs_to :user
   attr_accessible :description, :title
 
    validates :title, :presence => true

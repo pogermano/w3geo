@@ -2,9 +2,16 @@ require 'spec_helper'
 
 feature "Editing tickets" do
    let!(:customer) { Factory(:customer) }
-   let!(:ticket) { Factory(:ticket, :customer => customer) }
+   let!(:user) { Factory(:confirmed_user) }
+   let!(:ticket) do
+      ticket = Factory(:ticket, :customer => customer)
+      ticket.update_attribute(:user, user)
+      ticket
+end
+
 
    before do
+      sign_in_as!(user)
       visit '/'
       click_link customer.name
       click_link ticket.title
