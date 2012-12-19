@@ -1,0 +1,123 @@
+[33mcommit 3d11514340386a4da429f859f3e3b490d6126ea8[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Tue Dec 18 15:40:15 2012 -0200
+
+    Restrict access to project actions to admins only
+
+[33mcommit 2a4a2bebf9f90e26094ba49a115972fdea2c9b5d[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Tue Dec 18 13:09:12 2012 -0200
+
+    Associate users to tickets when tickets are created
+
+[33mcommit 5bc769f42e5da52bc6a77f1635e4deddf087b7f5[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Tue Dec 11 14:03:52 2012 -0200
+
+    Add feature for signing in via the Devise-provided form
+
+[33mcommit 3e3ba86f8df536268acbe616d78d130ba240d516[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Tue Dec 11 13:53:03 2012 -0200
+
+    Add feature for ensuring that a user is signed in via a confirmation email by using email spec
+
+[33mcommit 6d430636c643f9236ace22e619ea32c4a8fc110c[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Mon Dec 10 20:24:59 2012 -0200
+
+    Fixing sintax error
+
+[33mcommit 014bd557823fed9fc35bb7b0bd650d8073e5f742[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Mon Dec 10 19:20:10 2012 -0200
+
+    Add feature to ensure Devise signup is always working
+
+[33mcommit 25045bc5400d2a6b3f87857f9b1a6fb33fa34188[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Mon Dec 10 17:20:01 2012 -0200
+
+    Implement deleting tickets feature
+
+[33mcommit 18a0b707b0e0dbc615233bd978d8ce65bc8d8142[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Mon Dec 10 17:11:24 2012 -0200
+
+    Implement edit action for the tickets controller
+
+[33mcommit 8dd3e523ebbc0d0881e62e839426d19b3f73dea4[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Dec 9 17:33:58 2012 -0200
+
+    Implement features for displaying a list of relevant tickets for customers and viewing particular tickets
+
+[33mcommit 91282817aca4ac3735b12ee7d5d5f978e439f37c[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Dec 9 16:59:34 2012 -0200
+
+    Implement creating tickets for a customer
+
+[33mcommit d1fc705573848fe033fb2bb9bc64025d26539f69[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Dec 9 16:03:49 2012 -0200
+
+    Redirect the users back to the projects
+
+[33mcommit 67c51d39a9fe2cdf5435022de3073d3d520b0ea4[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Mon Nov 5 14:18:45 2012 -0200
+
+    Implement delete functionality for
+    customers
+
+[33mcommit c0201b7be02a32780ac157542bfe1a08dd3f8616[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Nov 4 19:29:32 2012 -0200
+
+    Add updating
+    custumers functionality
+
+[33mcommit 7b5253358f4f1b76c5070e3e0ec69f9e7eb4a509[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Nov 4 16:35:53 2012 -0200
+
+    Add the ability to view a list of all
+    customers
+
+[33mcommit 8e1e75f2a37866f82b026229071f65094f4a619d[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Nov 4 16:00:30 2012 -0200
+
+    Add validation to ensure names are
+    specified when creating projects
+
+[33mcommit 429aeda62d37a948089e83922403a26ff0073e6f[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Sun Nov 4 15:30:06 2012 -0200
+
+    Add title functionality for show page
+
+[33mcommit 9b21a2942fe282923eef32e132895d5feec6e309[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Fri Nov 2 16:42:37 2012 -0200
+
+    Creation of projects feature complete
+
+[33mcommit f7cdab10dbc0842c2282543bca292aac742d778a[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Fri Nov 2 16:07:48 2012 -0200
+
+    Add postgres support
+
+[33mcommit bd93befc710865a15f241f47d69b3afd0652b15a[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Fri Nov 2 12:56:42 2012 -0200
+
+    Setup gem dependencies and run rspec generator
+
+[33mcommit cd2a4d953da2fd803cfe12e160894b45a80afd20[m
+Author: pedro germano <pogermano@gmail.com>
+Date:   Fri Nov 2 12:36:58 2012 -0200
+
+    Commit inicial

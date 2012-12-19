@@ -1,6 +1,8 @@
 <h2>Customers</h2>
-<%= link_to "New Customer", new_customer_path %>
 
+<% admins_only do %>
+<%= link_to "New Customer", new_customer_path %>
+<% end %>
 <ul>
 <% @customers.each do |customer| %>
 <li><%= link_to customer.name, customer %></li>
