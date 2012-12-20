@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CustomersController do
 
 let(:user) { Factory(:confirmed_user) }
-let(:customer) { mock_model(Customer, :id => 1) }
+let(:customer) { Factory(:customer) }
 
 context "standard users" do
 
@@ -28,9 +28,22 @@ end
 
 
   it "displays an error for a missing customer" do
+    sign_in(:user, user)
     get :show, :id => "not-here"
     response.should redirect_to(customers_path)
     message = "The customer you were looking for could not be found."
     flash[:alert].should == message
   end
+
+  it "cannot access the show action without permission" do
+    sign_in(:user, user)
+    get :show, :id => customer.id
+    response.should redirect_to(customers_path)
+    flash[:alert].should eql("The customer you were looking " +
+    "for could not be found.")
+  end
+
+
+
+
 end

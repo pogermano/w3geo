@@ -11,6 +11,7 @@ feature 'Deleting tickets' do
    end
 
    before do
+      define_permission!(user, "view", customer)
       sign_in_as!(user)
       visit '/'
       click_link customer.name
