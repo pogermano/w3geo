@@ -9,4 +9,9 @@ class Customer < ActiveRecord::Base
     joins(:permissions).where(:permissions => { :action => "view", :user_id => user.id })
   end
 
+  def self.for(user)
+    user.admin? ? Customer : Customer.viewable_by(user)
+  end
+
+
 end

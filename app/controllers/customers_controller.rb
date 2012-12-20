@@ -1,12 +1,12 @@
 class CustomersController < ApplicationController
  before_filter :authorize_admin!, :except => [:index, :show]
- before_filter :authenticate_user!, :only => [:show]
+ before_filter :authenticate_user!, :only => [:index, :show]
  before_filter :find_customer, :only => [:show,
                                          :edit,
                                          :update,
                                          :destroy]
  def index
-   @customers = Customer.all
+   @customers = Customer.for(current_user).all
  end
 
  def new
@@ -49,12 +49,8 @@ class CustomersController < ApplicationController
 
 
 private
-  def find_customer
-     @customer = if current_user.admin?
-       Customer.find(params[:id])
-     else
-       @customer = Customer.viewable_by(current_user).find(params[:id])
-     end
+  def find_customer 
+   @customer = Customer.for(current_user).find(params[:id])
    rescue ActiveRecord::RecordNotFound
      flash[:alert] = "The customer you were looking" +
                      " for could not be found."
