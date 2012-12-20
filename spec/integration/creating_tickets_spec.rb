@@ -3,17 +3,18 @@ require 'spec_helper'
 feature "Creating Tickets" do
   before do
      customer = Factory(:customer, :name => "Internet Explorer")
-     user = Factory(:confirmed_user, :email => "ticketee@example.com")
-     define_permission!(user, "view", customer)
+     user = Factory(:admin_user, :email => "ticketee@example.com")
      sign_in_as!(user)
+     define_permission!(user, "view", customer)
+     define_permission!(user, "create_tickets", customer)
+
 
 
      visit '/'
      click_link "Internet Explorer"
      click_link "New Ticket"
-
-
      within("h2") { page.should have_content("New Ticket") }
+
   end
 
   scenario "Creating a ticket" do
