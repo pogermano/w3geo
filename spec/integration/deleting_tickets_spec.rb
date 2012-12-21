@@ -26,5 +26,6 @@ feature 'Deleting tickets' do
       page.current_url.should == customer_url(customer)
    end
 
+
 end
 

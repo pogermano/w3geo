@@ -5,10 +5,12 @@
 <%= link_to "Delete Customer",
 customer_path(@customer),
 :method => :delete,
-:confirm => "Are you sure you want to delete this project?" %>
+:confirm => "Are you sure you want to delete this customer?" %>
+<% end %>
+<% authorized?("create tickets".to_sym, @customer) do %>
+<%= link_to "New Ticket", new_customer_ticket_path(@customer) %>
 <% end %>
 
-<%= link_to "New Ticket", new_customer_ticket_path(@customer) %>
 <ul id='tickets'>
  <% @customer.tickets.each do |ticket| %>
   <li>
