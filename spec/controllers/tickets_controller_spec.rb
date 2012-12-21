@@ -28,6 +28,11 @@ describe TicketsController do
     flash[:alert].should eql(message)
   end
 
+  def cannot_update_tickets!
+    response.should redirect_to(customer)
+    flash[:alert].should eql("You cannot edit tickets on this customer.")
+  end
+
   it "cannot begin to create a ticket" do
     get :new, :customer_id => customer.id
     cannot_create_tickets!
@@ -37,6 +42,21 @@ describe TicketsController do
     post :create, :customer_id => customer.id
     cannot_create_tickets!
   end
+
+  it "cannot edit a ticket without permission" do
+    get :edit, { :customer_id => customer.id, :id => ticket.id }
+    cannot_update_tickets!
+  end
+
+  it "cannot update a ticket without permission" do
+    put :update, { :customer_id => customer.id, :id => ticket.id,
+:ticket => {}
+    }
+    cannot_update_tickets!
+  end
+
+
+
 end
 
 end

@@ -3,6 +3,8 @@ before_filter :authenticate_user!
 before_filter :find_customer
 before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
 before_filter  :authorize_create!, :only => [:new, :create]
+before_filter  :authorize_update!, :only => [:edit, :update]
+
 def new
   @ticket = @customer.tickets.build
 end
@@ -64,6 +66,12 @@ private
   def authorize_create!
     if !current_user.admin? && cannot?("create tickets".to_sym, @customer)
       flash[:alert] = "You cannot create tickets on this customer."
+      redirect_to @customer
+    end
+  end
+  def authorize_update!
+    if !current_user.admin? && cannot?("edit tickets".to_sym, @customer)
+      flash[:alert] = "You cannot edit tickets on this customer."
       redirect_to @customer
     end
   end
