@@ -55,6 +55,13 @@ describe TicketsController do
     cannot_update_tickets!
   end
 
+  it "cannot delete a ticket without permission" do
+    delete :destroy, { :customer_id => customer.id, :id => ticket.id }
+    response.should redirect_to(customer)
+    message = "You cannot delete tickets from this customer."
+    flash[:alert].should eql(message)
+  end
+
 
 
 end

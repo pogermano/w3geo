@@ -4,6 +4,7 @@ before_filter :find_customer
 before_filter :find_ticket, :only => [:show, :edit, :update, :destroy]
 before_filter  :authorize_create!, :only => [:new, :create]
 before_filter  :authorize_update!, :only => [:edit, :update]
+before_filter :authorize_delete!, :only => :destroy
 
 def new
   @ticket = @customer.tickets.build
@@ -74,6 +75,12 @@ private
       flash[:alert] = "You cannot edit tickets on this customer."
       redirect_to @customer
     end
+  end
+  def authorize_delete!
+    if !current_user.admin? && cannot?(:"delete tickets", @customer)
+      flash[:alert] = "You cannot delete tickets from this customer."
+      redirect_to @customer
+     end
   end
 
 
