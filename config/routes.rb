@@ -10,8 +10,14 @@ W3geo::Application.routes.draw do
 
    namespace :admin do
       root :to => "base#index"
-      resources :users
+      resources :users do
+         resources :permissions
+      end
    end
+
+   put '/admin/users/:user_id/permissions',
+   :to => 'admin/permissions#update',
+   :as => :update_user_permissions
 
 
    get "users/index"
