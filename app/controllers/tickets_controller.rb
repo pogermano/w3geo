@@ -8,6 +8,8 @@ before_filter :authorize_delete!, :only => :destroy
 
 def new
   @ticket = @customer.tickets.build
+  3.times { @ticket.assets.build }
+
 end
 
 def edit
