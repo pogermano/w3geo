@@ -1,5 +1,6 @@
 W3geo::Application.routes.draw do
 
+resources :files
 
    devise_for :users, :controllers => { :registrations => "registrations" }
    
